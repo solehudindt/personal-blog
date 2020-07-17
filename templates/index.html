@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        soldvdt
+    </title>
+     <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+    {% include 'snippets/navbar.html' %}
+
+
+<div class="d-flex align-items-center min-vh-100">
+    <div class="container text-center">
+      <h2>Hi, i'm solehudindt</h2>
+      <p class="lead">
+          I'm an Information System student who interested in Python, ERP, and Data Science.<br>
+          Feel free to touch me at any of my social media below.
+        </p>
+        <div class="pt-4">
+            <a href="https://www.facebook.com/soleh.thedev" target="_blank">
+              <i class="fab fa-facebook-f mr-3 fa-lg"></i>
+            </a>
+      
+            <a href="https://twitter.com/solehudindt" target="_blank">
+              <i class="fab fa-twitter mr-3 fa-lg"></i>
+            </a>
+
+            <a href="https://www.instagram.com/solehudindt" target="_blank">
+                <i class="fab fa-instagram mr-3 fa-lg"></i>
+              </a>
+      
+            <a href="https://github.com/solehudindt" target="_blank">
+              <i class="fab fa-github mr-3 fa-lg"></i>
+            </a>
+      
+            <a href="mailto:solehudindt@gmail.com" target="_blank">
+              <i class="fas fa-envelope mr-3 fa-lg"></i>
+            </a>
+          </div>
+    </div>
+</div>
+
+<script src="{% static 'vendor/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'vendor/popper.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
