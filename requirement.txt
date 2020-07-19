@@ -2,8 +2,6 @@ certifi==2020.4.5.1
 chardet==3.0.4
 defusedxml==0.6.0
 Django==2.2.8
-django-allauth==0.42.0
-django-bootstrap4==0.0.8
 idna==2.9
 Markdown==3.2.1
 oauthlib==3.1.0
