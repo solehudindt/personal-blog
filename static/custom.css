@@ -19,8 +19,8 @@ body {
 }
 
 footer {
-    font-style: oblique;
-    font-weight: lighter;
+    font-size: 12px;
+    font-weight: bold;
     text-align: center;
     margin: 10px;
 }
