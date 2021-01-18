@@ -25,7 +25,7 @@ SECRET_KEY = 'DJANGO+SECRET+KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['solehudindt.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1','solehudindt.pythonanywhere.com']
 
 
 # Application definition

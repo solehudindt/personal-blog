@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.bg-navb {
+    background-color: #000c19;
+}
+
+.navbar-brand {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+footer {
+    font-style: oblique;
+    font-weight: lighter;
+    text-align: center;
+    margin: 10px;
+}
