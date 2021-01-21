@@ -9,13 +9,17 @@ Article
 
 
 {% for artikel in artikel_list %}
-    <h3><a class="text-dark" href="{% url 'artikel:detail' artikel.slug %}">
-        {{artikel.judul}}
-    </a></h3>
-      <span class="text-secondary">{{artikel.kategori}} | {{artikel.published}}</span>
-    <p>{{artikel.isi|truncatewords:50}}
-      <a href="{% url 'artikel:detail' artikel.slug %}">read more</a>
-    </p>
+  <div class="card shadow">
+    <div class="card-body">
+      <h3><a class="text-dark" href="{% url 'artikel:detail' artikel.slug %}">
+          {{artikel.judul}}
+      </a></h3>
+        <span class="text-secondary">{{artikel.kategori}} | {{artikel.published}}</span>
+      <p>{{artikel.isi|truncatewords:50}}
+        <a href="{% url 'artikel:detail' artikel.slug %}">read more</a>
+      </p>
+    </div>
+  </div>
 
 {% endfor %}
 {% if is_paginated %}

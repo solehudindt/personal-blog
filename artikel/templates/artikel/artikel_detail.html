@@ -6,13 +6,16 @@
 {% endblock title %}
 
 {% block content %}
-<section style="padding-right: 65px; padding-left:65px;">
-    <h1>{{artikel.judul}}</h1>
-    <span class="text-secondary">{{artikel.kategori}} | {{artikel.published}}</span>
-    <div class="text-center mt-3">
-        <img src="{{ artikel.gambar.url }}" class="img-fluid" alt="">
+<div class="card shadow">
+    <div class="card-body">
+    <section style="padding-right: 65px; padding-left:65px;">
+        <h1>{{artikel.judul}}</h1>
+        <span class="text-secondary">{{artikel.kategori}} | {{artikel.published}}</span>
+        <div class="text-center mt-3">
+            <img src="{{ artikel.gambar.url }}" class="img-fluid" alt="">
+        </div>
+        <p>{{artikel.isi | markdown | safe}}</p>
+    </section>
     </div>
-    <p>{{artikel.isi | markdown | safe}}</p>
-</section>
-
+</div>
 {% endblock content %}
