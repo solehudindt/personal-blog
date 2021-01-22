@@ -9,7 +9,7 @@ Article
 
 
 {% for artikel in artikel_list %}
-  <div class="card shadow">
+  <div class="card shadow mb-3">
     <div class="card-body">
       <h3><a class="text-dark" href="{% url 'artikel:detail' artikel.slug %}">
           {{artikel.judul}}

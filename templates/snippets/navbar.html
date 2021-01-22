@@ -1,20 +1,19 @@
+{% load static %}
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-navb shadow">
 <div class="container">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"></span>
     <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'logo.png' %}" alt="logo" style="max-height: 20px;">
         soldvdt
     </a>
-    <!-- <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
-        <img src="//placehold.it/40?text=LOGO" alt="logo">
-    </a> -->
     <div class="w-100 text-right">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </div>
-<div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+<div class="collapse navbar-collapse flex-grow-1 text-center" id="myNavbar">
     <ul class="navbar-nav ml-auto flex-nowrap">
         {% url 'index' as url %}
         <li class="nav-item 
@@ -32,9 +31,16 @@
           ">
             <a href="{% url 'artikel:list' %}" class="nav-link m-2 menu-item nav-active">Articles</a>
         </li>
+        
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a href="/admin/" class="nav-link m-2 menu-item">Dashboard</a>
+        </li>
+        {% else %}      
         <li class="nav-item">
             <a href="/admin/" class="nav-link m-2 menu-item">Login</a>
         </li>
+        {% endif %}
     </ul>
 </div>
 
