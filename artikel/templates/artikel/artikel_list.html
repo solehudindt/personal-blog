@@ -16,7 +16,7 @@ Article
         <h3><a class="text-dark" href="{% url 'artikel:detail' artikel.slug %}">
             {{artikel.judul}}
         </a></h3>
-          <span class="text-secondary">{{artikel.kategori}} | {{artikel.published}}</span>
+          <span class="text-secondary"><a href="{% url 'artikel:category' artikel.kategori %}">{{artikel.kategori}}</a> | {{artikel.published}}</span>
         <p>{{artikel.isi|truncatewords:50}}
           <a href="{% url 'artikel:detail' artikel.slug %}">read more</a>
         </p>
@@ -31,7 +31,7 @@ Article
         <ul class="list-group list-group-flush">          
           {% for kategori in kategori_list %}
 
-          <a href="" class="list-group-item list-group-item-action">{{kategori}}</a>
+          <a href="{% url 'artikel:category' kategori %}" class="list-group-item list-group-item-action">{{kategori}}</a>
 
           {% endfor %}
         </ul>

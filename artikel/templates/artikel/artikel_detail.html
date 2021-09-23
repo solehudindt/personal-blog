@@ -6,16 +6,43 @@
 {% endblock title %}
 
 {% block content %}
-<div class="card shadow">
-    <div class="card-body">
-    <section style="padding-right: 1.5%; padding-left:1.5%;">
-        <h1>{{artikel.judul}}</h1>
-        <span class="text-secondary">{{artikel.kategori}} | {{artikel.published}}</span>
-        <div class="text-center mt-3">
-            <img src="{{ artikel.gambar.url }}" class="img-fluid" alt="">
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-body">
+            <section style="padding-right: 1.5%; padding-left:1.5%;">
+                <h1>{{artikel.judul}}</h1>
+                <span class="text-secondary"><a href="{% url 'artikel:category' artikel.kategori %}">{{artikel.kategori}}</a> | {{artikel.published}}</span>
+                <div class="text-center mt-3">
+                    <img src="{{ artikel.gambar.url }}" class="img-fluid" alt="">
+                </div>
+                <p>{{artikel.isi | markdown | safe}}</p>
+            </section>
+            </div>
         </div>
-        <p>{{artikel.isi | markdown | safe}}</p>
-    </section>
+    </div>
+    <div class="col-sm">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+              <h3>Related Articles</h3>
+              <ul class="list-group list-group-flush">
+                  
+                {% if related_artikel %}
+                    {% for related in related_artikel %}
+
+                    <a href="{% url 'artikel:detail' related.slug %}" class="list-group-item list-group-item-action">{{related.judul}}</a>
+                    <li class="list-group-item"><p>{{related.published|date}} {{related.isi|truncatewords:10}}</p></li>
+            
+                    {% endfor %}
+                {% else %}
+                    No related post yet
+                {% endif %}
+                               
+              </ul>
+            </div>
+          </div>
     </div>
 </div>
+
 {% endblock content %}
