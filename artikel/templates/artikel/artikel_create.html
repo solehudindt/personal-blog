@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Create Article
+{% endblock title %}
+
+
+{% block content %}
+    <div class="card shadow">
+    <div class="card-body">
+
+    <h2>New Article</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{form.judul.id_for_label}}" class="form-label">Title :</label>
+                <input type="text" class="form-control" required id="{{form.judul.id_for_label}}" name="{{form.judul.name}}">
+            </div>
+            <div class="mb-3">
+                <label for="{{form.kategori.id_for_label}}" class="form-label">Category :</label>
+                <input type="text" class="form-control" required id="{{form.kategori.id_for_label}}" name="{{form.kategori.name}}">
+            </div>
+            <div class="mb-3">
+                <label for="{{form.gambar.id_for_label}}" class="form-label">Image :</label>
+                <input type="file" class="form-control" required id="{{form.gambar.id_for_label}}" name="{{form.gambar.name}}">
+            </div>
+            <div class="mb-3">
+                <label for="{{form.isi.id_for_label}}" class="form-label">Article :</label>
+                <textarea class="form-control" required id="{{form.isi.id_for_label}}" rows="8" name="{{form.isi.name}}"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+    </div>
+{% endblock content %}
