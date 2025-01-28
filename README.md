@@ -1,3 +1,2 @@
 # personal-blog
-my personal blog at pythonanywhere
-solehudindt.pythonanywhere.com
+my personal blog at [solehudindt.pythonanywhere.com]
