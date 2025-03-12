@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        soldvdt
+    </title>
+     <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'custom.css' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7098171691033170"
+     crossorigin="anonymous"></script>
+</head>
+
+{% include 'snippets/navbar.html' %}
+<body>
+
+
+      <div class="card mb-3 p-3 mb-3 shadow bg-white rounded">
+      <div class="card-body">
+          <div class="container text-center">
+      <h2>My Portfolio</h2>
+
+      <h6>Below is a collection of things I've done <br/> that I am proud of. Thanks for checking it out. </h6>
+
+    <div class="row mt-4 justify-content-center">
+        <div class="col-sm-6 col-lg-4">
+            <div class="content">
+                <a href="{% url 'doscom' %}">
+                    <div class="content-overlay"></div>
+                    <img class="img-fluid content-image" src="{% static 'images/protif.jpg' %}" style="height: auto;">
+                    <div class="content-details fadeIn-bottom">
+                        <h3 class="content-title text-sm text-lg-3">Copywriting/Social Media related</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="content">
+                <a href="http://solehudindt.pythonanywhere.com/artikel/category/personalProject">
+                    <div class="content-overlay"></div>
+                    <img class="img-fluid content-image" src="{% static 'images/doscom.jpg' %}" style="height: 65%;">
+                    <div class="content-details fadeIn-bottom">
+                        <h3 class="content-title text-sm text-lg-3"> Article of Python, Data, etc.</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+</div>
+
+<div class="card mb-3 p-3 mb-3 shadow bg-white rounded">
+      <div class="card-body">
+        <div class="row">
+
+        <div class="col-2">
+                <img class="img-fluid content-image" src="http://solehudindt.pythonanywhere.com/media/django-summernote/2024-08-29/7b4f0a63-173c-4a21-bc08-64c81b73e6cf.png">
+            </div>
+            <div class="col-10">
+                <div class="content">
+                    <h4>Central Java Dengue Cases in Relation to Population and Rainfall </h4>
+                    Collected dengue case data from several source and rainfall records from the BMKG website, focusing on areas closest to Central Java's climate stations.
+                    The dengue case data was available only from January to October 2022-2023. The data was preprocessed in Excel for easier formatting
+                    and then further analyzed in Python. Finally, the results were visualized using Tableau. <a
+                    href="http://solehudindt.pythonanywhere.com/artikel/central-java-dengue-cases-in-relation-to-populatio">article</a> | <a
+                    href="https://public.tableau.com/views/CentralJavaDengeuCases/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">tableau</a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+</div>
+<div class="card mb-3 p-3 mb-3 shadow bg-white rounded">
+      <div class="card-body">
+        <div class="row">
+
+        <div class="col-10">
+            <div class="content">
+                <h4>Tokopedia Simple Sentiment Analysis with SQL</h4>
+                This case study performs sentiment analysis on Tokopedia customer reviews focusing on sql using PostgreSQL.
+                It analyzes review ratings to classify sentiments into positive, negative, and neutral categories.
+                The analysis helps identify trends in customer sentiment, such as average ratings by category or how sales correlate with sentiment.
+                <a href="https://solehudindt.pythonanywhere.com/artikel/sqltokopedia-simple-sentiment-analysis">article</a> | <a href="https://github.com/solehudindt/data-related/blob/main/sql/Tokped_simple_sentiment_analysis.md">github report</a> | <a href="">pdf report</a>
+            </div>
+        </div>
+        <div class="col-2">
+                <img class="img-fluid content-image" src="https://solehudindt.pythonanywhere.com/media/images/tokped_review.png">
+        </div>
+
+        </div>
+        </div>
+    </div>
+</div>
+<div class="card mb-3 p-3 mb-3 shadow bg-white rounded">
+      <div class="card-body">
+        <div class="row">
+
+        <div class="col-2">
+                <img class="img-fluid content-image" src="https://solehudindt.pythonanywhere.com/media/images/dota2carryplayers-carryheroes.jpg">
+            </div>
+            <div class="col-10">
+                <div class="content">
+                <h4>Performance Analysis of Boom Esport DoTA 2 Carry Player</h4>
+                The entire analysis was conducted using Python. First, data was collected from recent matches using the OpenDota API.
+                This data was then preprocessed to extract key metrics such as GPM (gold per minute), K/D/A (kill/death/assist ratio), and others.
+                The results were compared, followed by the application of a universal efficiency formula.
+                The comparison was then repeated, and the findings were visualized using Radar Chart. <a
+                href="http://solehudindt.pythonanywhere.com/artikel/analyzing-former-vs-current-boomid-carry-players-a">article</a> | <a
+                href="https://github.com/solehudindt/data-related/blob/main/dota_2_carry_analysis.ipynb">notebook</a> | <a
+                href="https://github.com/solehudindt/data-related/blob/main/pdf/jackky%20vs%20natsumi%20data%20comparison.pdf">pdf report</a>
+
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+{% include 'snippets/footer.html' %}
+<script src="{% static 'vendor/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'vendor/popper.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
