@@ -3,6 +3,11 @@ from django.utils.text import slugify
 from django.urls import reverse
 
 class Artikel(models.Model):
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
+
     judul = models.CharField(max_length=75)
     gambar = models.ImageField(upload_to="images")
     isi = models.TextField()
@@ -10,6 +15,7 @@ class Artikel(models.Model):
     published = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     slug = models.SlugField(blank=True, editable=False)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='published')
 
     def save(self):
         self.slug = slugify(self.judul)

@@ -20,6 +20,10 @@ class ArtikelListView(ListView):
     ordering = ['-published']
     paginate_by = 3
 
+    def get_queryset(self):
+        # Only show published articles
+        return self.model.objects.filter(status='published').order_by('-published')
+
     def get_context_data(self,*args,**kwargs):
         kategori_list = self.model.objects.values_list('kategori', flat=True).distinct()
         self.kwargs.update({'kategori_list':kategori_list})
@@ -32,8 +36,16 @@ class ArtikelKategoriView(ListView):
     context_object_name = 'artikel_list'
     ordering = ['-published']
 
+    # def get_queryset(self):
+    #     self.queryset = self.model.objects.filter(kategori=self.kwargs['kategori'])
+    #     return super().get_queryset()
+    
     def get_queryset(self):
-        self.queryset = self.model.objects.filter(kategori=self.kwargs['kategori'])
+        # Only show published articles in this category
+        self.queryset = self.model.objects.filter(
+            kategori=self.kwargs['kategori'],
+            status='published'
+        )
         return super().get_queryset()
 
     def get_context_data(self,*args,**kwargs):
@@ -48,8 +60,12 @@ class ArtikelDetailView(DetailView):
     template_name = "artikel/artikel_detail.html"
     context_object_name = 'artikel'
 
+    def get_queryset(self):
+        # Only allow viewing published articles
+        return self.model.objects.filter(status='published')
+
     def get_context_data(self,*args,**kwargs):
-        related_artk = list(self.model.objects.all().exclude(id=self.object.id))
+        related_artk = list(self.model.objects.filter(status='published').exclude(id=self.object.id))
         if len(related_artk) < 3:
             item_count = len(related_artk)
         else:
