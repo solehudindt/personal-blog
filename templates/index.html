@@ -11,44 +11,52 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'custom.css' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7098171691033170"
+     crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="padding: 0;">
 
     {% include 'snippets/navbar.html' %}
 
 
 <div class="d-flex align-items-center min-vh-100">
     <div class="container text-center">
-      <h2>Hi, I'm solehudindt</h2>
+      <h2><img src="{% static 'images/aniwolf.gif' %}" alt="Pixelated wolf Animation" class="img-fluid" style="max-width: 48px; vertical-align: -2px;box-shadow: none;">Hi, I'm solehudindt </h2>
+      <!--https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGFuczZsdnptdGRkMjg1d2pqeXAyNDRhc2F2b2swc2c5ZzY3ZXQ2aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/hiFmne9N9MxlS/giphy.gif-->
       <p class="lead">
-        I'm a final year Information Systems student who is interested in python-based programming in general (web, data, etc.)
-        Feel free to touch me at any of my social media below.        
+          Ambitious Information Systems graduate with over a year of IT experience.</br>
+          Freelancer with Proficient in Python, SQL, QA automation and Project Management.
+          <a href="{% url 'portofolio' %}"><button type="button" class="btn btn-outline-dark btn-sm">see Portfolio</button></a>.<br>
+          Feel free to touch me at any of my social media below.
         </p>
         <div class="pt-4">
             <a href="https://www.facebook.com/soleh.thedev" target="_blank">
               <i class="fab fa-facebook-f mr-3 fa-lg"></i>
             </a>
-      
+
             <a href="https://twitter.com/solehudindt" target="_blank">
+              <!--<i class="fab fa-twitter mr-3 fa-lg"></i>-->
               <i class="fab fa-twitter mr-3 fa-lg"></i>
             </a>
 
             <a href="https://www.instagram.com/solehudindt" target="_blank">
                 <i class="fab fa-instagram mr-3 fa-lg"></i>
               </a>
-      
+
             <a href="https://github.com/solehudindt" target="_blank">
               <i class="fab fa-github mr-3 fa-lg"></i>
             </a>
-      
+
             <a href="mailto:solehudindt@gmail.com" target="_blank">
               <i class="fas fa-envelope mr-3 fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/solehudin-dt-1455b2175/" target="_blank">
+                <i class="fab fa-linkedin mr-3 fa-lg"></i>
             </a>
           </div>
           {% include 'snippets/footer.html' %}
     </div>
 </div>
-
 <script src="{% static 'vendor/jquery-3.5.1.min.js' %}"></script>
 <script src="{% static 'vendor/popper.min.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
