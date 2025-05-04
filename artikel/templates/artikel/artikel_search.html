@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="search-results">
+    <h1>Search Results for "{{ query }}"</h1>
+    
+    {% if artikel_list %}
+        <p>Found {{ page_obj.paginator.count }} result{{ page_obj.paginator.count|pluralize }}.</p>
+        
+        <div class="article-list">
+            {% for artikel in artikel_list %}
+                <div class="article-item">
+                    <h2><a href="{% url 'artikel:detail' artikel.slug %}">{{ artikel.judul }}</a></h2>
+                    <p class="article-meta">{{ artikel.published|date:"F j, Y" }} | {{ artikel.kategori }}</p>
+                    <div class="article-preview">
+                        {% if artikel.gambar %}
+                            <img src="{{ artikel.gambar.url }}" alt="{{ artikel.judul }}">
+                        {% endif %}
+                        <p>{{ artikel.isi|striptags|truncatewords:30 }}</p>
+                    </div>
+                    <a href="{% url 'artikel:detail' artikel.slug %}" class="read-more">Read more</a>
+                </div>
+            {% endfor %}
+        </div>
+        
+    {% else %}
+        <p>No articles found matching your search.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.db.models import Q
 from .models import Artikel
 from .forms import ArtikelForm
 import random
@@ -75,3 +76,29 @@ class ArtikelDetailView(DetailView):
 
         kwargs = self.kwargs
         return super().get_context_data(*args,**kwargs)
+
+class ArtikelSearchView(ListView):
+    model = Artikel
+    template_name = "artikel/artikel_search.html"  # Create this template
+    context_object_name = 'artikel_list'
+    paginate_by = 5
+    
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            # Search in title and content, only published articles
+            return self.model.objects.filter(
+                Q(judul__icontains=query) | 
+                Q(isi__icontains=query),
+                status='published'
+            ).order_by('-published')
+        else:
+            # Return empty queryset if no query
+            return self.model.objects.none()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.request.GET.get('q', '')
+        kategori_list = self.model.objects.filter(status='published').values_list('kategori', flat=True).distinct()
+        context['kategori_list'] = kategori_list
+        return context
