@@ -23,30 +23,29 @@
           ">
           <a href="{% url 'index' %}" class="nav-link m-2 menu-item">Home</a>
         </li>
-        {% url 'artikel:list' as url %}
+
+        {% url 'artikel:list' as artikel_list_url %}
+        {% if request.path == artikel_list_url %}
+        <li class="nav-item d-flex align-items-center justify-content-center">
+            <form action="{% url 'artikel:artikel_search' %}" method="get" class="form-inline mx-auto">
+
+              <div class="form-group mt-2 pt-1">
+                <input type="text" name="q" placeholder="Search articles..." value="{{ request.GET.q }}" class="form-control form-control-sm">
+              </div>
+                <!--<button type="submit" class="invisible">Search</button>-->
+
+            </form>
+        </li>
+        {% else %}
         <li class="nav-item 
                   {% if request.path == url %}
                     active
                   {% endif %}
-          ">
-            <a href="{% url 'artikel:list' %}" class="nav-link m-2 menu-item nav-active">Articles</a>
+                  ">
+        <a href="{% url 'artikel:list' %}" class="nav-link m-2 menu-item nav-active">Articles</a>
         </li>
-        <li class="nav-item">
-          
-          
-            <form action="{% url 'artikel:artikel_search' %}" method="get" class="form-inline">
-              <div class="form-group mt-3">
-                <input type="text" name="q" placeholder="Search articles..." value="{{ request.GET.q }}" class="form-control form-control-sm">
-              </div>
-              <div class="form-group mt-3 ml-2">
-                <button type="submit" class="btn btn-light btn-sm">Search</button>
-              </div>
-            </form>
-            
-          
-        </li>
-        
-        {% if request.user.is_authenticated %}
+        {% endif %}
+        <!-- {% if request.user.is_authenticated %}
         <li class="nav-item">
           <a href="/admin/" class="nav-link m-2 menu-item">Dashboard</a>
         </li>
@@ -54,7 +53,7 @@
         <li class="nav-item">
             <a href="/admin/" class="nav-link m-2 menu-item">Login</a>
         </li>
-        {% endif %}
+        {% endif %} -->
     </ul>
 </div>
 
